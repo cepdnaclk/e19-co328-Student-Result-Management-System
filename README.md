@@ -1,7 +1,7 @@
 <h1 align="center">Welcome to Academetrix!</h1>
 
 <p align="center">
-  <img src="images/academetrix-logo.png" alt="Academetrix Logo" width="200">
+  <img src="images/academetrix-logo.jpeg" alt="Academetrix Logo" width="200">
 </p>
 
 <p align="center">A Student Result Management System for University: Web Application</p>
