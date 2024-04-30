@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to Academetrix!</h1>
+<h1 align="center">Welcome to Acadametrics v2.0!</h1>
 
 <p align="center">
   <img src="images/academetrix-logo.jpeg" alt="Academetrix Logo" width="200">
@@ -10,7 +10,7 @@
 
 ## 🚀 Project Overview
 
-Academetrix is a powerful web application designed to manage and analyze undergraduate students' marks. It provides a comprehensive set of features to streamline the result management process and empower students , course coordinators and administrators.
+Acadametrics is a powerful web application designed to manage and analyze undergraduate students' marks. It provides a comprehensive set of features to streamline the result management process and empower students , course coordinators and administrators.
 
 ## 🌟 Meet the Team
 
