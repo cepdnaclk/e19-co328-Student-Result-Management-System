@@ -8,9 +8,10 @@
 </head>
 </head>
 <body>
-<h1 id="responseHeading" class="text-3xl font-bold underline">
+<h1 id="responseHeading" class=" text-amber-800 text-3xl font-bold ">
     Hello User!
 </h1>
+
 <form hx-post="/api/greeting" hx-target="#responseHeading" hx-swap="outerHTML">
     <input type="text" name="inputText" id="inputText">
     <button type="button">Submit</button>
