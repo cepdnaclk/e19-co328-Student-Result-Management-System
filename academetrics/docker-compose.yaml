@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  db:
+    image: mysql:8.0
+    container_name: academetrics-db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: academetrics
+      MYSQL_USER: academetrics-spring
+      MYSQL_PASSWORD: 123
+    ports:
+      - "3306:3306"
+    volumes:
+      - db-data:/var/lib/mysql
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: academetrics-app
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/academetrics
+      SPRING_DATASOURCE_USERNAME: academetrics-spring
+      SPRING_DATASOURCE_PASSWORD: 123
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+    depends_on:
+      - db
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins-server
+    ports:
+      - "8081:8080"
+      - "50000:50000"
+    volumes:
+      - jenkins-data:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+
+volumes:
+  db-data:
+  jenkins-data:
