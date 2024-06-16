@@ -1,0 +1,39 @@
+pipeline {
+    agent any
+    
+    environment {
+        JAVA_HOME = "/usr/lib/jvm/java-1.21.0-openjdk-amd64" // adjust this in the server
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                // Clone the repository
+                git branch: 'main', url: 'https://github.com/KalinduWijerathna/e19-co328-Student-Result-Management-System.git'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                // Change directory to academetrics and build the project using Maven Wrapper
+                sh '''
+                cd ./academetrics
+                pwd
+                JAVA_HOME=/usr/lib/jvm/java-1.21.0-openjdk-amd64 ./mvnw clean install -DskipTests
+                '''
+            }
+        }
+        
+        stage('Deploy') {
+            steps {
+                // Run the bash script to start Docker services
+                sh '''
+                pwd
+                cd ./academetrics
+                docker compose up --build -d                '''
+            }
+        }
+    }
+    
+  
+}
