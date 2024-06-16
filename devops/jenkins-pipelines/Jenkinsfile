@@ -1,39 +1,39 @@
 pipeline {
     agent any
-
+    
     environment {
-        JAVA_HOME = "/usr/lib/jvm/java-1.21.0-openjdk-amd64"
+        JAVA_HOME = "/usr/lib/jvm/java-1.21.0-openjdk-amd64" // adjust this in the server
     }
-
+    
     stages {
         stage('Checkout') {
             steps {
-                // Fetch code from GitHub repository
-                git 'https://github.com/your-username/your-repo.git'
+                // Clone the repository
+                git branch: 'main', url: 'https://github.com/KalinduWijerathna/e19-co328-Student-Result-Management-System.git'
             }
         }
-
+        
         stage('Build') {
             steps {
-                // Build the Maven project using a Docker container
-                dir('academetrics') {
-                    sh 'docker run --rm -v $PWD:/workspace -v $HOME/.m2:/root/.m2 -w /workspace maven:3.8.5-openjdk-21-slim mvn clean install -DskipTests'
-                }
+                // Change directory to academetrics and build the project using Maven Wrapper
+                sh '''
+                cd ./academetrics
+                pwd
+                JAVA_HOME=/usr/lib/jvm/java-1.21.0-openjdk-amd64 ./mvnw clean install -DskipTests
+                '''
             }
         }
-
+        
         stage('Deploy') {
             steps {
-                // Run Docker Compose to build and start the services
-                sh 'sudo docker-compose up --build -d'
+                // Run the bash script to start Docker services
+                sh '''
+                pwd
+                cd ./academetrics
+                docker compose up --build -d                '''
             }
         }
     }
-
-    post {
-        always {
-            // Clean up Docker Compose
-            // sh 'sudo docker-compose down'
-        }
-    }
+    
+  
 }
