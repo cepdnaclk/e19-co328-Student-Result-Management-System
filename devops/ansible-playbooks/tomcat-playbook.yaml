@@ -1,0 +1,32 @@
+---
+- name: Install Tomcat
+  hosts: all
+  remote_user: ubuntu
+  become: true
+  tasks:
+    - name: Install Java
+      apt:
+        name: default-jdk
+        state: present
+    - name: Download Tomcat
+      get_url:
+        url: "https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.54/bin/apache-tomcat-9.0.54.tar.gz"
+        dest: /opt/
+    - name: Extract Tomcat
+      unarchive:
+        src: /opt/apache-tomcat-9.0.54.tar.gz
+        dest: /opt/
+        remote_src: yes
+    - name: Configure Tomcat Users
+      template:
+        src: /home/kalindu/Downloads/apache-tomcat-10.1.19/conf/tomcat-users.xml
+        dest: /opt/apache-tomcat-9.0.54/conf/tomcat-users.xml
+    - name: Configure Tomcat port to 80
+      become: true
+      replace:
+        path: /opt/apache-tomcat-9.0.54/conf/server.xml
+        regexp: 'port="8080"'
+        replace: 'port="80"'
+    - name: Start Tomcat using startup.sh script
+      shell:
+        cmd: /opt/apache-tomcat-9.0.54/bin/startup.sh                                                                                           
