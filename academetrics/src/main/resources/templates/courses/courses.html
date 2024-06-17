@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Courses</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/application.css}">
+</head>
+<body>
+    <h1>Courses</h1>
+    <button hx-get="/api/courses" hx-trigger="click" hx-target="#course-list" hx-swap="innerHTML">Load Courses</button>
+    <div th:replace="courses/course-list">
+        <!-- Course list will be loaded here initially -->
+    </div>
+</body>
+</html>

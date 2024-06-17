@@ -7,23 +7,24 @@ INSERT INTO department (id, name) VALUES
 ("CP", "Department of Chemical & Process Engineering"),
 ("PR", "Department of Manufacturing & Industrial Engineering");
 
-/*
-INSERT INTO course (code, name, credits) VALUES
-                                             ("CO221", "Digital Design", 3),
-                                             ("CO222", "Programming Methodology", 3),
-                                             ("CO223", "Computer Communication Networks I", 3),
-                                             ("EM211", "Ordinary Differential Equations", 2),
-                                             ("EM213", "Probability & Statistics", 2),
-                                             ("EM214", "Discrete Mathematics", 3),
-                                             ("EE282", "Network Analysis for Computer Engineering", 3),
-                                             ("CO224", "Computer Architecture", 3),
-                                             ("CO225", "Software Construction", 3),
-                                             ("CO226", "Database Systems", 3),
-                                             ("EM215", "Numerical Methods", 3),
-                                             ("EM212", "Calculus II", 3),
-                                             ("EE285", "Electronics I", 3),
-                                             ("GP106", "Computing", 3);
 
+INSERT INTO course (code, name, credits) VALUES
+("CO221", "Digital Design", 3),
+("CO222", "Programming Methodology", 3),
+("CO223", "Computer Communication Networks I", 3),
+("EM211", "Ordinary Differential Equations", 2),
+("EM213", "Probability & Statistics", 2),
+("EM214", "Discrete Mathematics", 3),
+("EE282", "Network Analysis for Computer Engineering", 3),
+("CO224", "Computer Architecture", 3),
+("CO225", "Software Construction", 3),
+("CO226", "Database Systems", 3),
+("EM215", "Numerical Methods", 3),
+("EM212", "Calculus II", 3),
+("EE285", "Electronics I", 3),
+("GP106", "Computing", 3);
+
+/*
 INSERT INTO course_offering (course_code, year) VALUES
                                                     ("CO221", 2023),
                                                     ("CO222", 2023),
