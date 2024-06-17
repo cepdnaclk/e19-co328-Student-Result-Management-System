@@ -1,4 +1,4 @@
-package academetrics.controller.web;
+package academetrics.controller;
 
 import academetrics.dto.CourseDTO;
 import academetrics.service.CourseService;
@@ -12,14 +12,22 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/courses")
-public class CourseWebController {
+public class CourseController {
     @Autowired
     private CourseService courseService;
 
     @GetMapping("/")
     public String courses(Model model){
+        // List<CourseDTO> courses = courseService.getAllCourses();
+        // model.addAttribute("courses", courses);
+        return "courses/courses";
+    }
+
+    @GetMapping("/course-list")
+    public String getCourses(Model model) {
+
         List<CourseDTO> courses = courseService.getAllCourses();
         model.addAttribute("courses", courses);
-        return "courses/courses";
+        return "courses/course-list";
     }
 }

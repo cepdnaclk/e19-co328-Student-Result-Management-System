@@ -1,4 +1,5 @@
 <div th:fragment="course-list">
+    <div id="course-list">
     <ul>
         <li th:each="course : ${courses}">
             <span th:text="${course.name}">Course Name</span> -
@@ -6,4 +7,5 @@
             <span th:text="${course.credits}">Credits</span>
         </li>
     </ul>
+    </div>
 </div>
