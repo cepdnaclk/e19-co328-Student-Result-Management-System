@@ -30,6 +30,8 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<scope>runtime</scope>
+			<optional>true</optional>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -67,12 +69,12 @@
 		<resources>
 			<resource>
 				<directory>src/main/resources</directory>
-				<excludes>
-					<exclude>**/*.html</exclude>
-					<exclude>**/*.css</exclude>
-					<exclude>**/*.js</exclude>
-					<exclude>**/*.svg</exclude>
-				</excludes>
+<!--				<excludes>-->
+<!--					<exclude>**/*.html</exclude>-->
+<!--					<exclude>**/*.css</exclude>-->
+<!--					<exclude>**/*.js</exclude>-->
+<!--					<exclude>**/*.svg</exclude>-->
+<!--				</excludes>-->
 			</resource>
 		</resources>
 		<pluginManagement>
