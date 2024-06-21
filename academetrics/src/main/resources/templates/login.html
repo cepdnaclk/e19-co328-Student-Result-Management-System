@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academatrix - Sign In</title>
+    <link rel="stylesheet" th:href="@{/css/application.css}">
+    <style>
+        body {
+
+            background-color: #f0f4f8;
+            position: relative;
+
+        }
+        .error-message {
+            display: none;
+            color: red;
+        }
+        .header-logo {
+            height: 48px;
+            width: 48px;
+        }
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+            object-fit: cover;
+            transform: translate(-20%, -10%) rotate(-12deg) scale(0.75);
+            filter: blur(8px);
+        }
+    </style>
+</head>
+<body class="flex flex-col h-screen justify-between">
+<header class="m-4 flex items-center justify-between rounded-full bg-white p-4 shadow">
+    <div class="flex items-center">
+        <img src="https://upload.wikimedia.org/wikipedia/en/c/cc/University_of_Peradeniya_crest.png" alt="University of Peradeniya" class="header-logo">
+        <h1 class="m-3 font-medium">University of Peradeniya</h1>
+    </div>
+    <img src="../images/logo.svg" alt="Academatrix" class="header-logo">
+</header>
+
+<main class="flex mt-10 items-center justify-center">
+    <img src="https://previews.123rf.com/images/oliviart/oliviart2004/oliviart200400634/148385462-education-icon-isolated-on-white-background-graduation-cap-icon-graduate-students-cap.jpg" class="background-image" alt="Background Image">
+    <div class="mr-20 flex flex-col">
+        <h1 class="mb-8 text-6xl font-extralight">Hi There,</h1>
+        <h1 class="text-xl font-semibold">Welcome to</h1>
+        <h1 class="text-3xl font-extralight">ACADEMATRIX</h1>
+    </div>
+
+    <div class="mt-6 w-full max-w-md rounded-3xl bg-gradient-to-r from-transparent to-orange-100/50 p-8 shadow-2xl">
+        <h1 class="-m-14 mb-4 text-7xl font-bold">Sign in</h1>
+
+        <form id="loginForm">
+            <label class="mt-10 block text-right font-medium text-gray-700">Enter your username and password</label>
+            <div class="mb-4">
+                <input type="text" id="username" class="mb-0 mt-1 block w-full border-none px-3 py-4 placeholder-gray-400" placeholder="Username">
+                <input type="password" id="password" class="block w-full border-none px-3 py-4 placeholder-gray-400 shadow-sm" placeholder="Password">
+            </div>
+            <div class="mb-4 mt-10 flex items-center justify-between">
+                <p class="text-sm text-slate-500">Forgot your password? <a href="#" class="text-blue-500">Click here</a></p>
+            </div>
+            <div id="error" class="error-message mb-4">Error: User does not exist</div>
+            <button type="submit" class="w-full rounded-lg bg-yellow-500 px-4 py-2 font-bold text-white shadow-lg hover:bg-yellow-600">Login</button>
+        </form>
+    </div>
+</main>
+
+<footer class="m-4 flex items-center justify-between p-4">
+    <h1 class="text-sm">© 2024 PeraCom . All Rights Reserved</h1>
+</footer>
+
+
+</body>
+<script>
+    // for testing purposes
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        if (username !== 'correctUser' || password !== 'correctPass') {
+            document.getElementById('error').style.display = 'block';
+        } else {
+            document.getElementById('error').style.display = 'none';
+            alert('Login successful!');
+        }
+    });
+</script>
+</html>
+
