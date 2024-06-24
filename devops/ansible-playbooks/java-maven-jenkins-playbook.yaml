@@ -1,0 +1,50 @@
+---
+- name: Install Java, Maven, and Jenkins
+  hosts: all
+  remote_user: ubuntu
+  become: true
+  tasks:
+    - name: Update apt cache
+      apt:
+        update_cache: yes
+
+    - name: Install Java
+      apt:
+        name: openjdk-21-jdk
+        state: present
+
+    - name: Add Jenkins apt repository key
+      apt_key:
+        url: https://pkg.jenkins.io/debian-stable/jenkins.io.key
+        state: present
+
+    - name: Add Jenkins apt repository
+      apt_repository:
+        repo: deb http://pkg.jenkins.io/debian-stable binary/
+        state: present
+
+    - name: Install Jenkins
+      apt:
+        name: jenkins
+        state: present
+      notify:
+        - Start Jenkins
+
+    - name: Install Maven
+      apt:
+        name: maven
+        state: present
+
+  handlers:
+    - name: Start Jenkins
+      service:
+        name: jenkins
+        state: started
+        enabled: yes
+
+
+  handlers:
+    - name: Start Jenkins
+      systemd:
+        name: jenkins
+        state: started
