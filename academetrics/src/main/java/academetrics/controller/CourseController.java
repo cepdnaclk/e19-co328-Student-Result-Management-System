@@ -42,12 +42,14 @@ public class CourseController {
 
     @PostMapping("/")
     public String createCourse(
-            @Valid CourseDTO courseDTO,
-            BindingResult bindingResult
+            // TODO: Add form validation
+            CourseDTO courseDTO
+            //@Valid CourseDTO courseDTO,
+            //BindingResult bindingResult
     ) {
-        if (bindingResult.hasErrors()) {
-            return "courses/";
-        }
+//        if (bindingResult.hasErrors()) {
+//            return "courses/";
+//        }
 
         courseService.saveCourse(courseDTO);
         return "redirect:/courses/";

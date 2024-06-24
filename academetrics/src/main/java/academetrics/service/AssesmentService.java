@@ -13,8 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class AssesmentService {
-
-//    private final AssesmentRepository assesmentRepository;
+    @Autowired
+    private AssesmentRepository assesmentRepository;
 //    private CourseOfferingService courseOfferingService;
 //
 //    @Autowired
@@ -40,9 +40,9 @@ public class AssesmentService {
 //        return assesmentRepository.findAllByCourseOffering(courseOffering);
 //    }
 //
-//    public Assesment getAssesment(Integer id){
-//        return assesmentRepository.findByAssesId(id);
-//    }
+    public Assesment getAssesment(Integer id){
+        return assesmentRepository.findByAssesId(id);
+    }
 //
 //    public AssesmentDTO updateAssesment(Integer assesmentId, AssesmentDTO updatedAssesmentDTO) {
 //        Assesment existingAssesment = assesmentRepository.findByAssesId(assesmentId);

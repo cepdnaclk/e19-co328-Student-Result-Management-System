@@ -11,6 +11,35 @@
 
     <div th:replace="~{fragments/navbar :: navbar}"></div>
 
+    <div class="container mx-auto p-8">
+        <div class="bg-white p-6 rounded shadow-md">
+            <h1 class="text-2xl font-bold mb-4">Welcome, <span th:text="|${user.initials}  ${user.lastName}|">Student Name</span>!</h1>
+            <p class="text-lg mb-4">Your GPA: <span th:text="${gpa}">GPA</span></p>
+
+            <h2 class="text-xl font-semibold mb-2">Following Courses</h2>
+            <table class="min-w-full bg-white border border-gray-300">
+                <thead>
+                <tr class="bg-gray-200">
+                    <th class="py-2 px-4 border-b">Course Code</th>
+                    <th class="py-2 px-4 border-b">Course Name</th>
+                    <th class="py-2 px-4 border-b">Credits</th>
+                    <th class="py-2 px-4 border-b">Year</th>
+                    <th class="py-2 px-4 border-b">Grade</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="course : ${courses}">
+                    <td class="py-2 px-4 border-b" th:text="${course.courseOffering.courseDTO.code}">Course Code</td>
+                    <td class="py-2 px-4 border-b" th:text="${course.courseOffering.courseDTO.name}">Course Name</td>
+                    <td class="py-2 px-4 border-b" th:text="${course.courseOffering.courseDTO.credits}">Credits</td>
+                    <td class="py-2 px-4 border-b" th:text="${course.courseOffering.year}">Year</td>
+                    <td class="py-2 px-4 border-b" th:text="${course.grade}">Grade</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 
 
 </body>
