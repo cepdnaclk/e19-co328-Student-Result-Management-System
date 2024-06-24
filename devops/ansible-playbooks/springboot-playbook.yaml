@@ -1,0 +1,16 @@
+---
+- name: Deploy Spring Boot application
+  hosts: all
+  remote_user: ubuntu
+  become: true
+  tasks:
+    - name: Copy Spring Boot WAR file to Tomcat
+      copy:
+        src: /home/kalindu/Athal/AWS_athal/automate-3/jenkins-test/target/demo-0.0.1-SNAPSHOT.war
+        dest: /opt/apache-tomcat-9.0.54/webapps/app.war
+
+    - name: Shutdown Tomcat
+      command: sudo /opt/apache-tomcat-9.0.54/bin/shutdown.sh
+
+    - name: Startup Tomcat
+      command: sudo /opt/apache-tomcat-9.0.54/bin/startup.sh
