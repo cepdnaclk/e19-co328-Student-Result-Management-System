@@ -20,7 +20,7 @@ services:
       dockerfile: Dockerfile
     container_name: academetrics-app
     ports:
-      - "8082:8080"
+      - "80:8080"
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/academetrics
       SPRING_DATASOURCE_USERNAME: academetrics-spring
