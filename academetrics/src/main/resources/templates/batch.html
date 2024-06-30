@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academatrix | Dashboard</title>
+    <title>Academetrics | Student Batch Management</title>
     <link rel="stylesheet" th:href="@{/css/application.css}">
     <style>
         body {
@@ -38,22 +38,57 @@
 <header class="m-4 flex items-center rounded-full bg-white p-4 shadow">
     <a href="/" class="flex items-center">
         <img src="../images/logo.svg" alt="Academatrix" class="header-logo">
-        <h1>CADEMATRIX</h1>
+        <h1>ACADEMATRIX</h1>
     </a>
     <div class="links flex items-center gap-4 ml-4">
+        <a class="text-lg" href="/">Home</a>
         <a class="text-lg" href="/users">Users</a>
         <a class="text-lg" href="/courses">Courses</a>
-        <a class="text-lg" href="/batches">Batches</a>
+
     </div>
     <img src="https://upload.wikimedia.org/wikipedia/en/c/cc/University_of_Peradeniya_crest.png" alt="University of Peradeniya" class="ml-auto header-logo">
 </header>
 
-<main class="flex mt-10">
+<div class="ml-5">
+    <h2>Student Batch Management</h2>
+</div>
+
+
+<main class="flex h-screen">
     <img src="https://previews.123rf.com/images/oliviart/oliviart2004/oliviart200400634/148385462-education-icon-isolated-on-white-background-graduation-cap-icon-graduate-students-cap.jpg" class="background-image" alt="Background Image">
-    <div class="rounded-full bg-white">
-        <h1>Welcome AR</h1>
+
+    <form class="w-screen h-100 p-2 m-2 border border-solid border-black rounded-lg bg-white">
+        <p class="ml-5 mt-3">Add New Batch</p>
+
+    <div class="w-full flex flex-row space-x-3 place-content-center p-2 w-full">
+        <div class="flex flex-row w-1.5/6">
+            <label for="batch-name" class="block text-base font-medium text-gray-700 p-2">Enter Batch Name</label>
+            <input class="rounded-lg pl-2 border border-solid border-black" type="text" id="batch-name" placeholder="E/xx">
+        </div>
+
+        <div class="flex flex-row w-1.75/6">
+            <label for="start-date" class="block text-base font-medium text-gray-700 p-2">Select Start Date</label>
+            <input class="rounded-lg pl-2 text-gray-600 border border-solid border-black" type="date" id="start-date">
+        </div>
+
+        <div class="flex flex-row w-1.75/6">
+            <label for="end-date" class="block text-base font-medium text-gray-700 p-2">Select End Date (Approx)</label>
+            <input class="rounded-lg pl-2 text-gray-600 border border-solid border-black" type="date" id="end-date">
+        </div>
+
+        <div class="flex flex-row w-1/6">
+            <button type="submit" class="w-full rounded-lg bg-yellow-500 px-4 py-2 font-bold text-white shadow-lg hover:bg-yellow-600">Submit</button>
+        </div>
     </div>
+    </form>
+
+<!--    <div class="ml-5">-->
+<!--        <h2>Student Batch Management</h2>-->
+<!--    </div>-->
+
 </main>
+
+
 
 <footer class="m-4 flex items-center justify-between p-4">
     <h1 class="text-sm">© 2024 PeraCom . All Rights Reserved</h1>
