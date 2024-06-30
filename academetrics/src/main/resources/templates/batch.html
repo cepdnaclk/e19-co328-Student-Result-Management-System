@@ -49,7 +49,7 @@
     <img src="https://upload.wikimedia.org/wikipedia/en/c/cc/University_of_Peradeniya_crest.png" alt="University of Peradeniya" class="ml-auto header-logo">
 </header>
 
-<div class="ml-5">
+<div class="ml-5 text-lg">
     <h2>Student Batch Management</h2>
 </div>
 
@@ -57,10 +57,16 @@
 <main class="h-screen">
     <img src="https://previews.123rf.com/images/oliviart/oliviart2004/oliviart200400634/148385462-education-icon-isolated-on-white-background-graduation-cap-icon-graduate-students-cap.jpg" class="background-image" alt="Background Image">
 
-    <form class="w-screen h-100 p-2 m-2 border border-solid border-black rounded-lg bg-white">
+<!--    form for creating a new batch-->
+    <form class="w-full h-100 p-2 m-2 border border-solid border-black rounded-lg bg-white">
         <p class="ml-5 mt-3">Add New Batch</p>
 
+<!--        parent div container-->
     <div class="w-full flex flex-row space-x-3 place-content-center p-2">
+
+<!--        child containers for the each input field-->
+<!--        TODO - try to fix the full width not utilizing issue-->
+
         <div class="flex flex-row w-1.5/6">
             <label for="batch-name" class="block text-base font-medium text-gray-700 p-2">Enter Batch Name</label>
             <input class="rounded-lg pl-2 border border-solid border-black" type="text" id="batch-name" placeholder="E/xx">
@@ -76,17 +82,22 @@
             <input class="rounded-lg pl-2 text-gray-600 border border-solid border-black" type="date" id="end-date">
         </div>
 
-        <div class="flex flex-row w-1/6">
-            <button type="submit" class="w-full rounded-lg bg-yellow-500 px-4 py-2 font-bold text-white shadow-lg hover:bg-yellow-600">Submit</button>
+        <div class="flex items-end w-1/6 ">
+            <button type="submit" class="w-full ml-5 rounded-lg bg-yellow-500 px-4 py-2 font-bold text-white shadow-lg hover:bg-yellow-600">Submit</button>
         </div>
     </div>
     </form>
+<!--    end of the form-->
 
-    <div class="ml-5">
+    <div class="ml-5 text-lg">
         <h2>Current Batches</h2>
     </div>
 
+<!--    current batches cards-->
+
+
 </main>
+
 
 
 
