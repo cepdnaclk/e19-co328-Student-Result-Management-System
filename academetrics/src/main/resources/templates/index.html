@@ -1,5 +1,5 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html xlmns:th="http;//www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,29 +34,40 @@
         }
     </style>
 </head>
-<body class="flex flex-col h-screen justify-between">
-<header class="m-4 flex items-center rounded-full bg-white p-4 shadow">
-    <a href="/" class="flex items-center">
-        <img src="../images/logo.svg" alt="Academatrix" class="header-logo">
-        <h1>CADEMATRIX</h1>
-    </a>
-    <div class="links flex items-center gap-4 ml-4">
-        <a class="text-lg" href="/users">Users</a>
-        <a class="text-lg" href="/courses">Courses</a>
-    </div>
-    <img src="https://upload.wikimedia.org/wikipedia/en/c/cc/University_of_Peradeniya_crest.png" alt="University of Peradeniya" class="ml-auto header-logo">
-</header>
+</head>
+<body>
 
-<main class="flex mt-10">
-    <img src="https://previews.123rf.com/images/oliviart/oliviart2004/oliviart200400634/148385462-education-icon-isolated-on-white-background-graduation-cap-icon-graduate-students-cap.jpg" class="background-image" alt="Background Image">
-    <div class="rounded-full bg-white">
-        <h1>Welcome AR</h1>
-    </div>
-</main>
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
 
-<footer class="m-4 flex items-center justify-between p-4">
-    <h1 class="text-sm">© 2024 PeraCom . All Rights Reserved</h1>
-</footer>
+    <div class="container mx-auto p-8">
+        <div class="bg-white p-6 rounded shadow-md">
+            <h1 class="text-2xl font-bold mb-4">Welcome, <span th:text="|${user.initials}  ${user.lastName}|">Student Name</span>!</h1>
+            <p class="text-lg mb-4">Your GPA: <span th:text="${gpa}">GPA</span></p>
+
+            <h2 class="text-xl font-semibold mb-2">Following Courses</h2>
+            <table class="min-w-full bg-white border border-gray-300">
+                <thead>
+                <tr class="bg-gray-200">
+                    <th class="py-2 px-4 border-b">Course Code</th>
+                    <th class="py-2 px-4 border-b">Course Name</th>
+                    <th class="py-2 px-4 border-b">Credits</th>
+                    <th class="py-2 px-4 border-b">Year</th>
+                    <th class="py-2 px-4 border-b">Grade</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="course : ${courses}">
+                    <td class="py-2 px-4 border-b" th:text="${course.courseOffering.courseDTO.code}">Course Code</td>
+                    <td class="py-2 px-4 border-b" th:text="${course.courseOffering.courseDTO.name}">Course Name</td>
+                    <td class="py-2 px-4 border-b" th:text="${course.courseOffering.courseDTO.credits}">Credits</td>
+                    <td class="py-2 px-4 border-b" th:text="${course.courseOffering.year}">Year</td>
+                    <td class="py-2 px-4 border-b" th:text="${course.grade}">Grade</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
 
 
 </body>
