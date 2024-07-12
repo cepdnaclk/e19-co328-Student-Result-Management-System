@@ -1,4 +1,4 @@
-INSERT INTO department (id, name) VALUES
+INSERT IGNORE INTO department (id, name) VALUES
 ('CO', 'Department of Computer Engineering'),
 ('EM', 'Department of Engineering Mathematics'),
 ('EE', 'Department of Electrical & Electronic Engineering'),
@@ -8,7 +8,7 @@ INSERT INTO department (id, name) VALUES
 ('PR', 'Department of Manufacturing & Industrial Engineering');
 
 
-INSERT INTO course (code, name, credits) VALUES
+INSERT IGNORE INTO course (code, name, credits) VALUES
 ('CO221', 'Digital Design', 3),
 ('CO222', 'Programming Methodology', 3),
 ('CO223', 'Computer Communication Networks I', 3),
@@ -25,7 +25,7 @@ INSERT INTO course (code, name, credits) VALUES
 ('GP106', 'Computing', 3);
 
 
-INSERT INTO course_offering (course_code, year) VALUES
+INSERT IGNORE INTO course_offering (course_code, year) VALUES
 ('CO221', 2023),
 ('CO222', 2023),
 ('CO223', 2023),
@@ -41,7 +41,7 @@ INSERT INTO course_offering (course_code, year) VALUES
 ('EE285', 2023),
 ('GP106', 2023);
 
-INSERT INTO user (user_name, password, mail, honorific, initials, last_name, role, contact, dept_id) VALUES
+INSERT IGNORE INTO user (user_name, password, mail, honorific, initials, last_name, role, contact, dept_id) VALUES
 --('admin', '$2a$12$Hish978AZuwUquegBl4NruwMXrMPs6iKYm90pvl9X90e2g3qyAkyi', 'admin@eng.pdn.ac.lk', 'Mr', 'A.', 'Mihindu', 'admin', '0777123456', null),
 --('E/19/275', '$2a$12$XsvDjpRjIik/0hZV5MoWOuGmbtgqPTlRvYkaj99mAd2oInVXOpWfC', 'e19275@eng.pdn.ac.lk', 'Mr', 'M. S.', 'Peeris', 'student', '0777199768', 'CO'),
 ('admin', '123', 'admin@eng.pdn.ac.lk', 'Mr', 'A.', 'Mihindu', 'admin', '0777123456', null),
@@ -54,12 +54,12 @@ INSERT INTO user (user_name, password, mail, honorific, initials, last_name, rol
 
 --admin pwd 123
 --e/19/275 456
-INSERT INTO student(user_name, academic_year, semester, gpa) VALUES
+INSERT IGNORE INTO student(user_name, academic_year, semester, gpa) VALUES
 ('E/19/275', '2', '4', '2.3'),
 ('E/10/001', '2', '4', '3');
 
 
-INSERT INTO student_course (course_offering_course_code, course_offering_year, student_user_name, grade) VALUES
+INSERT IGNORE INTO student_course (course_offering_course_code, course_offering_year, student_user_name, grade) VALUES
  ('CO221', '2023' ,'E/10/001', 'A'),
  ('CO222', '2023' ,'E/10/001', 'C-'),
  ('CO223', '2023' ,'E/10/001', 'B+'),
@@ -74,7 +74,7 @@ INSERT INTO student_course (course_offering_course_code, course_offering_year, s
  ('EE282', '2023' ,'E/10/001', null),
  ('EE285', '2023' ,'E/10/001', null);
 
-INSERT INTO assesment (course_code, year, name, type, max_marks) VALUES
+INSERT IGNORE INTO assesment (course_code, year, name, type, max_marks) VALUES
 ('CO221', 2023, 'Lab 1', 'Lab', '5'),
 ('CO221', 2023, 'Lab 1', 'Lab', '5'),
 ('CO221', 2023, 'Lab 1', 'Lab', '5'),
@@ -82,7 +82,7 @@ INSERT INTO assesment (course_code, year, name, type, max_marks) VALUES
 ('CO221', 2023, 'Mid', 'Mid', '30'),
 ('CO221', 2023, 'Final', 'Final', '50');
 
-INSERT INTO student_assesment (assesment_id, student_user_name, marks) VALUES
+INSERT IGNORE INTO student_assesment (assesment_id, student_user_name, marks) VALUES
 (1, 'E/10/001', 5),
 (2, 'E/10/001', 5),
 (3, 'E/10/001', 5),
